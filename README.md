@@ -15,16 +15,8 @@ This is a minimal starter template for building applications with Payload CMS. I
 ### Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/abdulrehmankz1/payload-blank-starter
 cd payload-blank
-```
-
-### Setup environment variables
-
-Copy the example environment file and update it with your MongoDB URI and other settings:
-
-```bash
-cp .env.example .env
 ```
 
 ### Install dependencies and start the development server
