@@ -9,6 +9,8 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import Posts from './collections/Posts' // ✅ added
+import Categories from './collections/Categories' // ✅ added
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -19,9 +21,30 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    dateFormat: 'dd/mm/yyyy'
+    dateFormat: 'dd/mm/yyyy',
+    meta: {
+      icons: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          url: '/payload_dark.png',
+          media: '(prefers-color-scheme: light)',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          url: '/payload_light.png',
+          media: '(prefers-color-scheme: dark)',
+        },
+      ],
+    },
   },
-  collections: [Users, Media],
+  collections: [
+    Users,
+    Media,
+    Categories, 
+    Posts,      
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
