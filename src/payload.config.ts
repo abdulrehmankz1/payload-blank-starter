@@ -19,6 +19,7 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    dateFormat: 'dd/mm/yyyy'
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
