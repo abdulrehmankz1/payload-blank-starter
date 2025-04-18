@@ -1,67 +1,76 @@
 # Payload Blank Template
 
-This template comes configured with the bare minimum to get started on anything you need.
+This is a minimal starter template for building applications with Payload CMS. It comes pre-configured with essential collections and settings to help you get started quickly.
 
-## Quick start
+## Features
 
-This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
+- User authentication and admin panel access
+- Media uploads with image resizing and focal point support
+- Pre-configured collections: Posts, Categories, Media, Users
+- Optional Docker support for local development
+- Easy local setup and deployment
 
-## Quick Start - local setup
+## Quick Start
 
-To spin up this template locally, follow these steps:
+### Clone the repository
 
-### Clone
+```bash
+git clone <repository-url>
+cd payload-blank
+```
 
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
+### Setup environment variables
 
-### Development
+Copy the example environment file and update it with your MongoDB URI and other settings:
 
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URI` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
+```bash
+cp .env.example .env
+```
 
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
+### Install dependencies and start the development server
 
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+Using pnpm:
 
-#### Docker (Optional)
+```bash
+pnpm install
+pnpm dev
+```
 
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
+Open your browser and navigate to `http://localhost:3000` to see the app running.
 
-To do so, follow these steps:
+### Docker (Optional)
 
-- Modify the `MONGODB_URI` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URI` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
+If you prefer to use Docker for local development:
+
+1. Update the `MONGODB_URI` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
+2. Update the `docker-compose.yml` file's `MONGODB_URI` to match the above `<dbname>`
+3. Run:
+
+```bash
+docker-compose up
+```
+
+This will start the MongoDB database container.
+
+## Project Structure
+
+- `src/collections/` - Contains Payload CMS collections like Posts, Categories, Media, and Users
+- `src/payload.config.ts` - Main Payload CMS configuration file
+- `public/assets/images/` - Static assets and images used in the project
+- `docker-compose.yml` and `Dockerfile` - Docker configuration files for containerized development
 
 ## How it works
 
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
+This template is tailored for most websites using Payload CMS. It includes:
 
-### Collections
+- Authentication-enabled Users collection for admin access
+- Media collection with upload and image management features
+- Posts and Categories collections for content management
 
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
+## Support
 
-- #### Users (Authentication)
+If you have any questions or issues, please reach out on [Payload Discord](https://discord.com/invite/payload) or open a discussion on [GitHub Discussions](https://github.com/payloadcms/payload/discussions).
 
-  Users are auth-enabled collections that have access to the admin panel.
+## License
 
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/main/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
-
-- #### Media
-
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
-
-### Docker
-
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
-
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
-
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
-
-## Questions
-
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+This project is licensed under the MIT License.
