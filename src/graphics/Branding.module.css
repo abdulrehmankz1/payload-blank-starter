@@ -1,0 +1,17 @@
+.lightOnly {
+  display: block;
+}
+
+.darkOnly {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  .lightOnly {
+    display: none;
+  }
+
+  .darkOnly {
+    display: block;
+  }
+}

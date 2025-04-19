@@ -38,6 +38,12 @@ export default buildConfig({
         },
       ],
     },
+    components: {
+      graphics: {
+        Icon: '/graphics/Branding.tsx#Icon',
+        Logo: '/graphics/Branding.tsx#Logo',
+      },
+    },
   },
   collections: [
     Users,
